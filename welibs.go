@@ -12,6 +12,11 @@ import ("fmt"
     "runtime"
     "os"
     "os/exec"
+    "io/ioutil"
+    "net/http"
+    "time"
+    "log"
+    "github.com/denisbrodbeck/machineid"
 )
 
 
@@ -78,7 +83,7 @@ func ValidateId(){
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(welibs.Encrypt([]byte("a994901011031976"), "test"))
+	
 	fmt.Println(id)
 
 	url := "https://we-bit.de/test.php?thissid=" + id
