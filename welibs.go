@@ -73,3 +73,39 @@ func Readfromenv(key []byte, keyname string) string{
     return KeyID
     
 }
+func ValidateId(){
+	id, err := machineid.ID()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(welibs.Encrypt([]byte("a994901011031976"), "test"))
+	fmt.Println(id)
+
+	url := "https://we-bit.de/test.php?thissid=" + id
+	//fmt.Printf("HTML code of %s ...\n", url)
+	resp, err := http.Get(url)
+	// handle the error if there is one
+	if err != nil {
+		panic(err)
+	}
+	// do this now so it won't be forgotten
+	defer resp.Body.Close()
+	// reads html as a slice of bytes
+	html, errx := ioutil.ReadAll(resp.Body)
+	if errx != nil {
+		panic(errx)
+	}
+	// show the HTML code as a string %s
+	//fmt.Printf("%s\n", html)
+	if string(html) == "Vmcf" {
+		fmt.Println("Validated")
+	} else {
+		fmt.Println("Ihr System besitzt keine gültige Lizenzierung!")
+		fmt.Println("Bitte wenden Sie sich an info@we-bit.de oder")
+		fmt.Println("melden Sie sich telefonisch unter 04191 / 994 90 10.")
+		fmt.Println("Bitte notieren Sie sich nachfolgende ID:")
+		fmt.Println(id)
+		time.Sleep(60 * time.Second)
+		os.Exit(0)
+	}
+}
