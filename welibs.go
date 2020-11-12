@@ -13,10 +13,7 @@ import ("fmt"
     "os"
     "os/exec"
 )
-// This func must be Exported, Capitalized, and comment added.
-func Demo(ausgabe string) {
-    fmt.Println(ausgabe)
-}
+
 
 func Encrypt(key []byte, text string) string {
 	// key := []byte(keyText)
