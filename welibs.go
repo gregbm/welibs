@@ -16,7 +16,7 @@ import ("fmt"
     "net/http"
     "time"
     "log"
-    "sycall"
+    "syscall"
     "github.com/denisbrodbeck/machineid"
 )
 
