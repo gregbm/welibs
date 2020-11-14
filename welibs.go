@@ -84,9 +84,6 @@ func GetSystem() string{
 	p := dll.MustFindProc("GetVersion")
 	v, _, _ := p.Call()
 	systemL:=fmt.Sprintf("Windows version %d.%d (Build %d)", byte(v), uint8(v>>8), uint16(v>>16))
-	if err != nil {
-		log.Fatal(err)
-	}
 	return (systemL)
 }
 func ValidateId(){
