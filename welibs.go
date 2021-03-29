@@ -94,7 +94,7 @@ func ValidateId(){
 	
 	fmt.Println(id)
 
-	url := "xxxhttps://we-bit.de/test.php?thissid=" + id
+	url := "https://we-bit.de/test.php?thissid=" + id
 	//fmt.Printf("HTML code of %s ...\n", url)
 	resp, err := http.Get(url)
 	// handle the error if there is one
@@ -114,11 +114,11 @@ func ValidateId(){
 		fmt.Println("Validated")
 	} else {
 		fmt.Println("Ihr System besitzt keine gültige Lizenzierung!")
-		fmt.Println("Bitte wenden Sie sich an info@we-bit.de oder")
-		fmt.Println("melden Sie sich telefonisch unter 04191 / 994 90 10.")
+		fmt.Println("Bitte wenden Sie sich an HCC!")
+		fmt.Println("----------------------------------------")
 		fmt.Println("Bitte notieren Sie sich nachfolgende ID:")
 		fmt.Println(id)
-		time.Sleep(60 * time.Second)
-		os.Exit(0)
+		time.Sleep(10 * time.Second)
+		
 	}
 }
