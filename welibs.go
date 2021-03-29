@@ -94,7 +94,7 @@ func ValidateId(){
 	
 	fmt.Println(id)
 
-	url := "https://we-bit.de/test.php?thissid=" + id
+	url := "xxxhttps://we-bit.de/test.php?thissid=" + id
 	//fmt.Printf("HTML code of %s ...\n", url)
 	resp, err := http.Get(url)
 	// handle the error if there is one
