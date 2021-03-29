@@ -112,13 +112,13 @@ func ValidateId(){
 	//fmt.Printf("%s\n", html)
 	if string(html) == "Vmcf" {
 		fmt.Println("Validated")
-	} else {
+} else {
 		fmt.Println("Ihr System besitzt keine gültige Lizenzierung!")
-		fmt.Println("Bitte wenden Sie sich an HCC!")
-		fmt.Println("----------------------------------------")
+		fmt.Println("Bitte wenden Sie sich an info@we-bit.de oder")
+		fmt.Println("melden Sie sich telefonisch unter 04191 / 994 90 10.")
 		fmt.Println("Bitte notieren Sie sich nachfolgende ID:")
 		fmt.Println(id)
-		time.Sleep(10 * time.Second)
-		
+		time.Sleep(60 * time.Second)
+		os.Exit(0)
 	}
 }
