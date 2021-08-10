@@ -87,6 +87,7 @@ func GetSystem() string{
 	return (systemL)
 }
 func ValidateId(){
+	fmt.Println("OK")
 	id, err := machineid.ID()
 	if err != nil {
 		log.Fatal(err)
