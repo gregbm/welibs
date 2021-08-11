@@ -123,3 +123,19 @@ func ValidateId(){
 		os.Exit(0)
 	}
 }
+// copyFile source, destination
+func copyFile(source string, destination string)
+{
+	input, err := ioutil.ReadFile(source)
+        if err != nil {
+                fmt.Println(err)
+                return
+        }
+
+        err = ioutil.WriteFile(destination, input, 0644)
+        if err != nil {
+                fmt.Println("Error creating", destination)
+                fmt.Println(err)
+                return
+        }
+}
