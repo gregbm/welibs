@@ -124,7 +124,7 @@ func ValidateId(){
 	}
 }
 // copyFile source, destination
-func copyFile(source string, destination string){
+func CopyFile(source string, destination string){
 	input, err := ioutil.ReadFile(source)
         if err != nil {
                 fmt.Println(err)
