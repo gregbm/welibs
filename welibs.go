@@ -143,6 +143,6 @@ func FormatTimeLine(extension string) string {
 	currentTime := time.Now()
 	fmt.Println("Current Time in String: ", currentTime.String())
 	extension = "." + extension
-	TimeString := fmt.Sprintf(currentTime.Format("02-01-2006 15-04-05 Monday"), extension)
+	TimeString := fmt.Sprintf(currentTime.Format("02-01-2006 15-04-05 Monday%v"), extension)
 	return TimeString
 }
