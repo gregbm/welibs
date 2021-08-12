@@ -123,7 +123,7 @@ func ValidateId(){
 		os.Exit(0)
 	}
 }
-// copyFile source, destination
+// CopyFile source, destination
 func CopyFile(source string, destination string){
 	input, err := ioutil.ReadFile(source)
         if err != nil {
@@ -137,4 +137,12 @@ func CopyFile(source string, destination string){
                 fmt.Println(err)
                 return
         }
+}
+// FormatTimeLine Fileextension without dot as string
+func FormatTimeLine(extension string) string {
+	currentTime := time.Now()
+	fmt.Println("Current Time in String: ", currentTime.String())
+	extension = "." + extension
+	TimeString := fmt.Sprintf(currentTime.Format("02-01-2006 15-04-05 Monday"), extension)
+	return TimeString
 }
