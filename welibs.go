@@ -146,3 +146,30 @@ func FormatTimeLine(extension string) string {
 	TimeString := fmt.Sprintf(currentTime.Format("02-01-2006 15-04-05 Monday%v"), extension)
 	return TimeString
 }
+// EncryptFile key, source, destination
+func EncryptFile(key []byte, source string, destination string){
+	fileName := source
+	file, err := os.Open(fileName)
+	if err != nil {
+		//
+	}
+	defer file.Close()
+
+	b, err := ioutil.ReadFile(fileName) // just pass the file name
+	if err != nil {
+		fmt.Print(err)
+	}
+	encrypted := welibs.Encrypt(key, string(b))
+
+	f, _ := os.Create(destination)
+
+	file, err = os.OpenFile(destination, os.O_WRONLY, 0644)
+	if err != nil {
+		fmt.Println(err)
+	}
+	
+	file.WriteString(string(encrypted))
+
+	
+	f.Close()
+}
