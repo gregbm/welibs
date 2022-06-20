@@ -159,7 +159,7 @@ func EncryptFile(key []byte, source string, destination string){
 	if err != nil {
 		fmt.Print(err)
 	}
-	encrypted := welibs.Encrypt(key, string(b))
+	encrypted := Encrypt(key, string(b))
 
 	f, _ := os.Create(destination)
 
