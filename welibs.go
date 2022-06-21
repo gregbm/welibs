@@ -198,6 +198,6 @@ func DecryptFile(key []byte, source string, destination string){
 	}
 
 	file.WriteString(string(decrypted))
-	fmt.Println(decrypted)
+	//fmt.Println(decrypted)
 	f.Close()
 }
