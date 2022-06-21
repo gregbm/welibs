@@ -197,7 +197,7 @@ func DecryptFile(key []byte, source string, destination string){
 	if err != nil {
 		fmt.Println(err)
 	}
-
+	defer file.Close()
 	file.WriteString(string(decrypted))
 	//fmt.Println(decrypted)
 	f.Close()
