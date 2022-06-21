@@ -173,3 +173,31 @@ func EncryptFile(key []byte, source string, destination string){
 	
 	f.Close()
 }
+// DecryptFile key, source, destination
+func DecryptFile(key []byte, source string, destination string){
+	fileName = source
+	file, err = os.Open(fileName)
+	
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer file.Close()
+	
+	b, err = ioutil.ReadFile(fileName) // just pass the file name
+	if err != nil {
+		fmt.Print(err)
+	}
+	
+	decrypted := Decrypt(key, string(b))
+	
+	f, _ = os.Create(destination)
+
+	file, err = os.OpenFile(destination, os.O_WRONLY, 0644)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	file.WriteString(string(decrypted))
+	fmt.Println(decrypted)
+	f.Close()
+}
