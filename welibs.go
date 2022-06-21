@@ -190,7 +190,7 @@ func DecryptFile(key []byte, source string, destination string){
 	
 	decrypted := Decrypt(key, string(b))
 	
-	f, _ = os.Create(destination)
+	f, _ := os.Create(destination)
 
 	file, err = os.OpenFile(destination, os.O_WRONLY, 0644)
 	if err != nil {
