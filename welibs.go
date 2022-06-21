@@ -175,15 +175,15 @@ func EncryptFile(key []byte, source string, destination string){
 }
 // DecryptFile key, source, destination
 func DecryptFile(key []byte, source string, destination string){
-	fileName = source
-	file, err = os.Open(fileName)
+	fileName := source
+	file, err := os.Open(fileName)
 	
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer file.Close()
 	
-	b, err = ioutil.ReadFile(fileName) // just pass the file name
+	b, err := ioutil.ReadFile(fileName) // just pass the file name
 	if err != nil {
 		fmt.Print(err)
 	}
