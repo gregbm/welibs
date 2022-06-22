@@ -22,7 +22,19 @@ import ("fmt"
     "strconv"
 )
 
+// scanPort Protocol, Adr1, Adr2, Adr3, Adr4, Port
+func scanPort(protocol string, a, b, c, d, port int) string {
+	hostname := fmt.Sprint(a) + "." + fmt.Sprint(b) + "." + fmt.Sprint(c) + "." + fmt.Sprint(d)
+	address := hostname + ":" + strconv.Itoa(port)
+	conn, err := net.DialTimeout(protocol, address, 4*time.Second)
 
+	if err != nil {
+		fmt.Println(err)
+		return "closed." + hostname
+	}
+	defer conn.Close()
+	return "open." + hostname
+}
 func Encrypt(key []byte, text string) string {
 	// key := []byte(keyText)
 	plaintext := []byte(text)
@@ -203,17 +215,4 @@ func DecryptFile(key []byte, source string, destination string){
 	file.WriteString(string(decrypted))
 	//fmt.Println(decrypted)
 	f.Close()
-}
-// scanPort Protocol, Adr1, Adr2, Adr3, Adr4, Port
-func scanPort(protocol string, a, b, c, d, port int) string {
-	hostname := fmt.Sprint(a) + "." + fmt.Sprint(b) + "." + fmt.Sprint(c) + "." + fmt.Sprint(d)
-	address := hostname + ":" + strconv.Itoa(port)
-	conn, err := net.DialTimeout(protocol, address, 4*time.Second)
-
-	if err != nil {
-		fmt.Println(err)
-		return "closed." + hostname
-	}
-	defer conn.Close()
-	return "open." + hostname
 }
