@@ -202,7 +202,7 @@ func DecryptFile(key []byte, source string, destination string){
 	//fmt.Println(decrypted)
 	f.Close()
 }
-// ScanPort Protocel, Adr1, Adr2, Adr3, Adr4, Port
+// scanPort Protocel, Adr1, Adr2, Adr3, Adr4, Port
 func scanPort(protocol string, a, b, c, d, port int) string {
 	hostname := fmt.Sprint(a) + "." + fmt.Sprint(b) + "." + fmt.Sprint(c) + "." + fmt.Sprint(d)
 	address := hostname + ":" + strconv.Itoa(port)
