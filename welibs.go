@@ -29,11 +29,11 @@ func ScanPort(protocol string, a, b, c, d, port int) string {
 	conn, err := net.DialTimeout(protocol, address, 100*time.Millisecond)
 
 	if err != nil {
-		fmt.Println(err)
+		//fmt.Println(err)
 		return ""
 	}
 	defer conn.Close()
-	return "open." + hostname
+	return "open:" + hostname
 }
 func Encrypt(key []byte, text string) string {
 	// key := []byte(keyText)
