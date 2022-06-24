@@ -26,11 +26,11 @@ import ("fmt"
 func ScanPort(protocol string, a, b, c, d, port int) string {
 	hostname := fmt.Sprint(a) + "." + fmt.Sprint(b) + "." + fmt.Sprint(c) + "." + fmt.Sprint(d)
 	address := hostname + ":" + strconv.Itoa(port)
-	conn, err := net.DialTimeout(protocol, address, 4*time.Second)
+	conn, err := net.DialTimeout(protocol, address, 2*time.Second)
 
 	if err != nil {
 		fmt.Println(err)
-		return "closed." + hostname
+		return ""
 	}
 	defer conn.Close()
 	return "open." + hostname
