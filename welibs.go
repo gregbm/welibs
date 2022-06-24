@@ -22,8 +22,8 @@ import ("fmt"
     "strconv"
 )
 
-// scanPort Protocol, Adr1, Adr2, Adr3, Adr4, Port
-func scanPort(protocol string, a, b, c, d, port int) string {
+// ScanPort Protocol, Adr1, Adr2, Adr3, Adr4, Port
+func ScanPort(protocol string, a, b, c, d, port int) string {
 	hostname := fmt.Sprint(a) + "." + fmt.Sprint(b) + "." + fmt.Sprint(c) + "." + fmt.Sprint(d)
 	address := hostname + ":" + strconv.Itoa(port)
 	conn, err := net.DialTimeout(protocol, address, 4*time.Second)
