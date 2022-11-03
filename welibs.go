@@ -94,10 +94,11 @@ func Readfromenv(key []byte, keyname string) string{
     
 }
 func GetSystem() string{
-	dll := syscall.MustLoadDLL("kernel32.dll")
-	p := dll.MustFindProc("GetVersion")
-	v, _, _ := p.Call()
-	systemL:=fmt.Sprintf("Windows version %d.%d (Build %d)", byte(v), uint8(v>>8), uint16(v>>16))
+	//dll := syscall.MustLoadDLL("kernel32.dll")
+	//p := dll.MustFindProc("GetVersion")
+	//v, _, _ := p.Call()
+	//systemL:=fmt.Sprintf("Windows version %d.%d (Build %d)", byte(v), uint8(v>>8), uint16(v>>16))
+	systemL:="not active"
 	return (systemL)
 }
 func ValidateId(){
