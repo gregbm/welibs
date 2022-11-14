@@ -190,7 +190,7 @@ func EncryptFile(key []byte, source string, destination string){
 }
 // DecryptFile key, source, destination
 func DecryptFile(key []byte, source string, destination string){
-	fmt.Println(string(key))
+	
 	fileName := source
 	file, err := os.Open(fileName)
 	
